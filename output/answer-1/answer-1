@@ -1,0 +1,59 @@
+import pandas as pd
+data = pd.read_csv("q1.csv") data.head()
+
+
+product_code	product_description	product_group	sales_date	price	sales_quantity
+0	1001	tomato	vegetable	2021-11-01	2.99	36
+1	1001	tomato	vegetable	2021-11-02	2.99	23
+2	1001	tomato	vegetable	2021-11-03	2.99	34
+3	1001	tomato	vegetable	2021-11-04	2.99	23
+4	1001	tomato	vegetable	2021-11-05	2.99	34
+
+ 
+data.groupby('product_description')['price'].mean() product_description
+apple	2.077778
+butter-0.25	11.400000
+cucumber	4.532857
+grape	4.400000
+milk-1.5	6.078571
+onion	2.150714
+orange	2.714286
+plum	4.389655
+tomato	3.121034
+yogurt-1	6.693103
+Name: price, dtype: float64
+data["price_new"] = data['price'].fillna(
+data.groupby('product_description')['price'].transform("mean")) data[data["price"].isna()].head()
+
+
+
+	product_code	product_description	product_group	sales_date	price	sales_quantity
+10	1001	tomato	vegetable	2021-11-11	NaN	20
+34	1002	cucumber	vegetable	2021-11-05	NaN	24
+37	1002	cucumber	vegetable	2021-11-08	NaN	38
+73	1003	onion	vegetable	2021-11-14	NaN	39
+74	1003	onion	vegetable	2021-11-15	NaN	25
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+0s	completed at 8:36 PM
