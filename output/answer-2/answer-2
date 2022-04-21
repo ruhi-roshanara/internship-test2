@@ -1,0 +1,46 @@
+ 
+
+import pandas as pd
+data2 = pd.read_csv("q2.csv") data2.head()
+
+product_code product_description product_group sales_date price sales_qua
+0	1001	tomato	vegetable	2021-11-01	2.99
+
+1	1001	tomato	vegetable	2021-11-02	2.99
+
+2	1001	tomato	vegetable	2021-11-03	2.99
+
+3	1001	tomato	vegetable	2021-11-04	2.99
+
+4	1001	tomato	vegetable	2021-11-05	2.99
+
+
+data2["sales_amount"]=data2["sales_quantity"].where( data2["unit"]!="pcs",
+data2["product_description"].str.split("-",expand=True)[1].astype("float")*\ data2["sales_quantity"])
+
+data2.tail()
+
+product_code product_description product_group sales_date price sales_quantit
+295	1203	butter-0.25	dairy	2021-11-26	11.9	3
+296	1203	butter-0.25	dairy	2021-11-27	11.9	2
+297	1203	butter-0.25	dairy	2021-11-28	11.9	3
+298	1203	butter-0.25	dairy	2021-11-29	11.9	3
+299	1203	butter-0.25	dairy	2021-11-30	11.9	3
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+0s	completed at 8:59 PM
